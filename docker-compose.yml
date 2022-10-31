@@ -25,6 +25,7 @@ services:
     container_name: frontend.service
     build:
       context: frontend
+#      dockerfile: Dockerfile-static
     ports:
       - 22002:3000
     volumes:
