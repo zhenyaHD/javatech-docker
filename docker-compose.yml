@@ -10,8 +10,7 @@ services:
 
   postgres:
     container_name: postgres.service
-    build:
-      context: postgres
+    image: "postgres:13.0"
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
@@ -20,6 +19,7 @@ services:
       - 22001:5432
     volumes:
       - postgres-data-volume:/var/lib/postgresql/data
+      - ./postgres/data.sql:/docker-entrypoint-initdb.d/data.sql
 
   frontend:
     container_name: frontend.service
